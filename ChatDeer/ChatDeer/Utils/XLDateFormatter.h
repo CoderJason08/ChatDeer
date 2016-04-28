@@ -12,4 +12,5 @@
 // 根据默认规则返回对应的日期
 + (NSString *)dateWithTimeStamp:(NSTimeInterval)timeStamp;
 + (NSString *)dateWithTimeStamp:(NSTimeInterval)timeStamp dateFormate:(NSString *)dateFormate;
++ (NSString *)dateStrWithDate:(NSDate *)date;
 @end

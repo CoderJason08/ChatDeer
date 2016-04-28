@@ -30,6 +30,7 @@ static NSInteger kPageSize = 10;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[XLChatListCell class] forCellReuseIdentifier:NSStringFromClass([XLChatListCell class])];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateConversationsNotification:) name:XLIMClientUpdateConversationsNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,14 +38,26 @@ static NSInteger kPageSize = 10;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - NotificationCenter
+
+- (void)receiveUpdateConversationsNotification:(NSNotification *)notice {
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [XLIMClient sharedClient].conversations.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XLChatListCell *chatListCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([XLChatListCell class]) forIndexPath:indexPath];
+    chatListCell.conversation = [XLIMClient sharedClient].conversations[indexPath.row];
     return chatListCell;
 }
 
@@ -57,34 +70,39 @@ static NSInteger kPageSize = 10;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *clientId = [[XLIMClient sharedClient].clientId isEqualToString:@"Jason"] ? @"Linus" : @"Jason";
-    AVIMConversationQuery *query = [[AVIMClient defaultClient] conversationQuery];
+//    AVIMConversationQuery *query = [[AVIMClient defaultClient] conversationQuery];
+//    [query whereKey:@"m" containsAllObjectsInArray:@[[XLIMClient sharedClient].clientId, clientId]];
+//    [query whereKey:@"m" sizeEqualTo:2];
+//    [query whereKey:AVIMAttr(@"customConversationType")  equalTo:@(1)];
+//    query.cachePolicy = kAVIMCachePolicyNetworkOnly;
+//    [AVOSCloud setAllLogsEnabled:YES];
     
-    [query whereKey:@"m" containsAllObjectsInArray:@[[XLIMClient sharedClient].clientId, clientId]];
-    [query whereKey:@"m" sizeEqualTo:2];
-    [query whereKey:AVIMAttr(@"customConversationType")  equalTo:@(1)];
-    query.cachePolicy = kAVIMCachePolicyNetworkOnly;
-    [AVOSCloud setAllLogsEnabled:YES];
-    
-    [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
-        if (objects.count == 0) {
-            [[XLIMClient sharedClient] createConversationWithName:@"xxx" clientIds:@[clientId] callback:^(AVIMConversation *conversation, NSError *error) {
-                [conversation queryMessagesWithLimit:kPageSize callback:^(NSArray *objects, NSError *error) {
-                    XLChatDetailTableViewController *chatDetail = [XLChatDetailTableViewController new];
-                    if (objects.count > 0) {
-                        chatDetail.messages = [objects mutableCopy];
-                    }
-                    chatDetail.currentConversation = conversation;
-                    [self.navigationController pushViewController:chatDetail animated:YES];
-                }];
-            }];
-        }else {
-            XLChatDetailTableViewController *chatDetail = [XLChatDetailTableViewController new];
-            chatDetail.currentConversation = objects[0];
-            [self.navigationController pushViewController:chatDetail animated:YES];
-        }
+//    [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
+//        if (objects.count == 0) {
+//            [[XLIMClient sharedClient] createConversationWithName:@"xxx" clientIds:@[clientId] callback:^(AVIMConversation *conversation, NSError *error) {
+//                [conversation queryMessagesWithLimit:kPageSize callback:^(NSArray *objects, NSError *error) {
+//                    XLChatDetailTableViewController *chatDetail = [XLChatDetailTableViewController new];
+//                    if (objects.count > 0) {
+//                        chatDetail.messages = [objects mutableCopy];
+//                    }
+//                    chatDetail.currentConversation = conversation;
+//                    [self.navigationController pushViewController:chatDetail animated:YES];
+//                }];
+//            }];
+//        }else {
+//            XLChatDetailTableViewController *chatDetail = [XLChatDetailTableViewController new];
+//            chatDetail.currentConversation = objects[0];
+//            [self.navigationController pushViewController:chatDetail animated:YES];
+//        }
+//    }];
+    XLChatDetailTableViewController *chatDetail = [XLChatDetailTableViewController new];
+    AVIMConversation *conversation = [XLIMClient sharedClient].conversations[indexPath.row];
+    chatDetail.currentConversation = conversation;
+    [conversation queryMessagesWithLimit:kPageSize callback:^(NSArray *objects, NSError *error) {
+        chatDetail.messages = [objects mutableCopy];
+        [self.navigationController pushViewController:chatDetail animated:YES];
     }];
-
+    
 }
 
 @end

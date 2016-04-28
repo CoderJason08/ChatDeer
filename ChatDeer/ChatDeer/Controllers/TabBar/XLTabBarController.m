@@ -33,7 +33,7 @@ UITabBarControllerDelegate
 - (void)initialLizeTabBarController {
     [self setupTabBarItemWithViewControllerClass:NSClassFromString(@"XLChatListTableViewController") normalImageName:@"chat" selectedImageName:@"chat_filled"];
     [self setupTabBarItemWithViewControllerClass:NSClassFromString(@"UIViewController") normalImageName:@"user_menu" selectedImageName:@"user_menu_filled"];
-    [self setupTabBarItemWithViewControllerClass:NSClassFromString(@"XLLogInViewController") normalImageName:@"wild_animals_sign" selectedImageName:@"wild_animals_sign_filled"];
+    [self setupTabBarItemWithViewControllerClass:NSClassFromString(@"XLUserCenterViewController") normalImageName:@"wild_animals_sign" selectedImageName:@"wild_animals_sign_filled"];
 }
 
 - (void)setupTabBarItemWithViewControllerClass:(Class)viewControllerClass

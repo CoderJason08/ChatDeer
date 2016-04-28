@@ -8,7 +8,12 @@
 
 #import <AVOSCloudIM/AVOSCloudIM.h>
 
+extern NSString *const XLIMClientUpdateConversationsNotification;
+
 @interface XLIMClient : AVIMClient
+@property (nonatomic, strong) NSMutableArray *conversations;
+
 + (instancetype)sharedClient;
+/** 配置会话信息 */
 + (void)confirmIMClientWithClientId:(NSString *)clientId openCallBack:(void(^)(BOOL isSucceed, NSError *error))callBack;
 @end

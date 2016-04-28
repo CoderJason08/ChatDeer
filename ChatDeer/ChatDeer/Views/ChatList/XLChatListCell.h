@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface XLChatListCell : UITableViewCell
-
+@property (nonatomic, strong) AVIMConversation *conversation;
 @end

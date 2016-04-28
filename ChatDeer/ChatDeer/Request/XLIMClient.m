@@ -8,6 +8,11 @@
 
 #import "XLIMClient.h"
 
+NSString *const XLIMClientUpdateConversationsNotification = @"XLIMClientUpdateConversationsNotification";
+
+@interface XLIMClient ()
+@end
+
 @implementation XLIMClient
 + (instancetype)sharedClient {
     static XLIMClient *client = nil;
@@ -19,7 +24,16 @@
 }
 
 + (void)confirmIMClientWithClientId:(NSString *)clientId openCallBack:(void (^)(BOOL, NSError *))callBack {
-    [[[self sharedClient] initWithClientId:clientId] openWithCallback:callBack];
+    AVIMClient *client = [[self sharedClient] initWithClientId:clientId];
+    [client openWithCallback:^(BOOL succeeded, NSError *error) {
+        AVIMConversationQuery *query = [client conversationQuery];
+        [query whereKey:@"m" containsAllObjectsInArray:@[clientId]];
+        [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
+            callBack(succeeded,error);
+            [[XLIMClient sharedClient] setConversations:objects.mutableCopy];
+            [[NSNotificationCenter defaultCenter] postNotificationName:XLIMClientUpdateConversationsNotification object:nil];
+        }];
+    }];
 }
 
 @end

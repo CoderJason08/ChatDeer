@@ -49,8 +49,9 @@ XLLoginMainViewDelegate
         [AVUser logInWithUsernameInBackground:loginMainView.account password:loginMainView.password block:^(AVUser *user, NSError *error) {
             if (user && !error) {
                 NSLog(@"登录成功");
+                /** 注册会话Client */
                 [XLIMClient confirmIMClientWithClientId:user.username openCallBack:^(BOOL isSucceed, NSError *error) {
-                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }];
             }
         }];

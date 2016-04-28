@@ -30,6 +30,7 @@
 		96FC26AE1CAC10BB00ACE739 /* XLChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FC26AD1CAC10BB00ACE739 /* XLChatListCell.m */; };
 		BD1D48B01CCF738600FB70D0 /* IchiroTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D48AF1CCF738600FB70D0 /* IchiroTextField.m */; };
 		BD4F269C1CB36C1F00F86780 /* XLIMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F269B1CB36C1F00F86780 /* XLIMClient.m */; };
+		BD8985881CD1AE5A002A9A1C /* XLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8985871CD1AE5A002A9A1C /* XLUserCenterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		BD1D48AF1CCF738600FB70D0 /* IchiroTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IchiroTextField.m; sourceTree = "<group>"; };
 		BD4F269A1CB36C1F00F86780 /* XLIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLIMClient.h; sourceTree = "<group>"; };
 		BD4F269B1CB36C1F00F86780 /* XLIMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLIMClient.m; sourceTree = "<group>"; };
+		BD8985861CD1AE5A002A9A1C /* XLUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLUserCenterViewController.h; sourceTree = "<group>"; };
+		BD8985871CD1AE5A002A9A1C /* XLUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLUserCenterViewController.m; sourceTree = "<group>"; };
 		C77A8F39FAEAAD1B8F384E02 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +152,7 @@
 		96047F671CA1969800A979BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD8985851CD1AE50002A9A1C /* UserCenter */,
 				9627C4F21CAF8A3300582F5A /* Login */,
 				96047F771CA198E600A979BB /* Navigation */,
 				96047F781CA198E600A979BB /* TabBar */,
@@ -368,6 +372,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD8985851CD1AE50002A9A1C /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				BD8985861CD1AE5A002A9A1C /* XLUserCenterViewController.h */,
+				BD8985871CD1AE5A002A9A1C /* XLUserCenterViewController.m */,
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -556,6 +569,7 @@
 				9627C4F91CAF8B2000582F5A /* XLLoginMainView.m in Sources */,
 				9696C6981CA18B1200905387 /* ChatDeer.xcdatamodeld in Sources */,
 				9696C68F1CA18B1200905387 /* AppDelegate.m in Sources */,
+				BD8985881CD1AE5A002A9A1C /* XLUserCenterViewController.m in Sources */,
 				9627C5021CB1222600582F5A /* XLKeyBoard.m in Sources */,
 				9627C5081CB12CA300582F5A /* XLButton.m in Sources */,
 				96047F7E1CA1991000A979BB /* XLTabBarController.m in Sources */,

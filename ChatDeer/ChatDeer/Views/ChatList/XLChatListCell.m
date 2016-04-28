@@ -39,6 +39,12 @@
     return self;
 }
 
+- (void)setConversation:(AVIMConversation *)conversation {
+    _conversation = conversation;
+    _titleLabel.text = conversation.name;
+    _dateLabel.text = [XLDateFormatter dateStrWithDate:conversation.lastMessageAt];
+}
+
 - (void)setupSubViewsConstraints {
     __weak typeof(self) weakSelf = self;
     
@@ -76,6 +82,8 @@
         [self.contentView addSubview:_containerView];
         _containerView.backgroundColor = [UIColor whiteColor];
         _containerView.layer.cornerRadius = 5.0f;
+//        _containerView.layer.borderColor = BlackColor.CGColor;
+//        _containerView.layer.borderWidth = 1.0f;
     }
     return _containerView;
 }

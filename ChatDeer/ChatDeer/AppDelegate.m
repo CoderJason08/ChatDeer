@@ -7,29 +7,60 @@
 //
 
 #import "AppDelegate.h"
-#import "XLTabBarController.h"
 #import <AVOSCloud/AVOSCloud.h>
+
+#import "XLNavigationController.h"
+#import "XLTabBarController.h"
+#import "XLLogInViewController.h"
+
 
 @interface AppDelegate ()
 
 @end
 
 static NSString *const appID = @"v3bqJeWqxqjdA1DbclbbVYhf-gzGzoHsz";
-static NSString *const appKey = @"6Vk2t51G8qNoW7tJGwwzHzMi";
+static NSString *const clientKey = @"6Vk2t51G8qNoW7tJGwwzHzMi";
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /** 跟踪app打开情况 */
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    [AVOSCloud setApplicationId:appID clientKey:appKey];
+    /** 设置appId clientKey */
+    [AVOSCloud setApplicationId:appID clientKey:clientKey];
     
-    // Override point for customization after application launch.
+    AVUser *user = [AVUser user];
+    user.username = @"13267859501";
+    
+    AVUser *user1 = [AVUser user];
+    user.username = @"Linus";
+    
+    AVRelation *friends = [user relationForKey:@"friends"];
+    [friends addObject:user1];
+    
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+    }];
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     XLTabBarController *tabBarController = [XLTabBarController new];
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
+    /** 查询用户登录情况 */
+    AVUser *currentUser = [AVUser currentUser];
+    if (currentUser) {
+        NSLog(@"%@",currentUser.username);
+        [XLIMClient confirmIMClientWithClientId:currentUser.username openCallBack:^(BOOL isSucceed, NSError *error) {
+           
+        }];
+    }else {
+        XLLogInViewController *loginVc = [XLLogInViewController new];
+        XLNavigationController *loginNavVc = [[XLNavigationController alloc] initWithRootViewController:loginVc];
+        [tabBarController presentViewController:loginNavVc animated:YES completion:nil];
+    }
+    // Override point for customization after application launch.
     return YES;
 }
 

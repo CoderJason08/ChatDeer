@@ -21,7 +21,7 @@ UITextFieldDelegate
 @property (nonatomic, strong) XLButton *actionButton;
 @property (nonatomic, strong) UIButton *exchangeLoginButton;
 @property (nonatomic, strong) UIButton *exchangeRegistButton;
-@property (nonatomic, strong) UIView *selectedFlag;
+@property (nonatomic, strong) UIImageView *selectedFlag;
 
 @property (nonatomic, copy) NSString *account;
 @property (nonatomic, copy) NSString *password;
@@ -213,10 +213,12 @@ UITextFieldDelegate
     return _exchangeRegistButton;
 }
 
-- (UIView *)selectedFlag {
+- (UIImageView *)selectedFlag {
     if (!_selectedFlag) {
-        _selectedFlag = [UIView new];
-        _selectedFlag.backgroundColor = [UIColor redColor];
+        _selectedFlag = [UIImageView new];
+//        _selectedFlag.image = [UIImage imageNamed:@"triangle"];
+//        _selectedFlag.contentMode = UIViewContentModeScaleAspectFit;
+        _selectedFlag.backgroundColor = [UIColor whiteColor];
         [self addSubview:_selectedFlag];
     }
     return _selectedFlag;
