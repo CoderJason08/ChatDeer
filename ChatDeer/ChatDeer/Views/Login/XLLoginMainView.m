@@ -149,6 +149,7 @@ UITextFieldDelegate
         self.bannerImageView = [UIImageView new];
         [self addSubview:_bannerImageView];
         _bannerImageView.backgroundColor = GrayColor;
+        _bannerImageView.image = [UIImage imageNamed:@"116.pic.jpg"];
     }
     return _bannerImageView;
 }

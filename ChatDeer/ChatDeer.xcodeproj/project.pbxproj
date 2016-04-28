@@ -23,12 +23,12 @@
 		9696C68F1CA18B1200905387 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9696C68E1CA18B1200905387 /* AppDelegate.m */; };
 		9696C6981CA18B1200905387 /* ChatDeer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9696C6961CA18B1200905387 /* ChatDeer.xcdatamodeld */; };
 		9696C69A1CA18B1200905387 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9696C6991CA18B1200905387 /* Assets.xcassets */; };
-		9696C69D1CA18B1200905387 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9696C69B1CA18B1200905387 /* LaunchScreen.storyboard */; };
 		9696C6A81CA18B1200905387 /* ChatDeerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9696C6A71CA18B1200905387 /* ChatDeerTests.m */; };
 		9696C6B31CA18B1200905387 /* ChatDeerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9696C6B21CA18B1200905387 /* ChatDeerUITests.m */; };
 		96C988A21CAC2327004C21C9 /* XLChatDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C988A11CAC2327004C21C9 /* XLChatDetailTableViewController.m */; };
+		96FAC7F71CD268C70002CA89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FAC7F51CD268C70002CA89 /* LaunchScreen.storyboard */; };
+		96FAC7F91CD268DA0002CA89 /* 136.pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96FAC7F81CD268DA0002CA89 /* 136.pic.jpg */; };
 		96FC26AE1CAC10BB00ACE739 /* XLChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FC26AD1CAC10BB00ACE739 /* XLChatListCell.m */; };
-		BD1D48B01CCF738600FB70D0 /* IchiroTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D48AF1CCF738600FB70D0 /* IchiroTextField.m */; };
 		BD4F269C1CB36C1F00F86780 /* XLIMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F269B1CB36C1F00F86780 /* XLIMClient.m */; };
 		BD8985881CD1AE5A002A9A1C /* XLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8985871CD1AE5A002A9A1C /* XLUserCenterViewController.m */; };
 /* End PBXBuildFile section */
@@ -83,7 +83,6 @@
 		9696C68E1CA18B1200905387 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9696C6971CA18B1200905387 /* ChatDeer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatDeer.xcdatamodel; sourceTree = "<group>"; };
 		9696C6991CA18B1200905387 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9696C69C1CA18B1200905387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9696C69E1CA18B1200905387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9696C6A31CA18B1200905387 /* ChatDeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatDeerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9696C6A71CA18B1200905387 /* ChatDeerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatDeerTests.m; sourceTree = "<group>"; };
@@ -93,11 +92,11 @@
 		9696C6B41CA18B1200905387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C988A01CAC2327004C21C9 /* XLChatDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLChatDetailTableViewController.h; sourceTree = "<group>"; };
 		96C988A11CAC2327004C21C9 /* XLChatDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLChatDetailTableViewController.m; sourceTree = "<group>"; };
+		96FAC7F61CD268C70002CA89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96FAC7F81CD268DA0002CA89 /* 136.pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 136.pic.jpg; sourceTree = "<group>"; };
 		96FC26AC1CAC10BB00ACE739 /* XLChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLChatListCell.h; sourceTree = "<group>"; };
 		96FC26AD1CAC10BB00ACE739 /* XLChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLChatListCell.m; sourceTree = "<group>"; };
 		B5B8B003930C4E8466DC50EC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		BD1D48AE1CCF738600FB70D0 /* IchiroTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IchiroTextField.h; sourceTree = "<group>"; };
-		BD1D48AF1CCF738600FB70D0 /* IchiroTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IchiroTextField.m; sourceTree = "<group>"; };
 		BD4F269A1CB36C1F00F86780 /* XLIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLIMClient.h; sourceTree = "<group>"; };
 		BD4F269B1CB36C1F00F86780 /* XLIMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLIMClient.m; sourceTree = "<group>"; };
 		BD8985861CD1AE5A002A9A1C /* XLUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLUserCenterViewController.h; sourceTree = "<group>"; };
@@ -246,8 +245,6 @@
 		96047F8B1CA1A72C00A979BB /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				BD1D48AE1CCF738600FB70D0 /* IchiroTextField.h */,
-				BD1D48AF1CCF738600FB70D0 /* IchiroTextField.m */,
 				9627C4FA1CB11FF200582F5A /* XLTextField.h */,
 				9627C4FB1CB11FF200582F5A /* XLTextField.m */,
 				9627C5061CB12CA300582F5A /* XLButton.h */,
@@ -324,7 +321,8 @@
 				9696C68D1CA18B1200905387 /* AppDelegate.h */,
 				9696C68E1CA18B1200905387 /* AppDelegate.m */,
 				96047F851CA1A1C700A979BB /* ChatDeer.pch */,
-				9696C69B1CA18B1200905387 /* LaunchScreen.storyboard */,
+				96FAC7F81CD268DA0002CA89 /* 136.pic.jpg */,
+				96FAC7F51CD268C70002CA89 /* LaunchScreen.storyboard */,
 				9696C6991CA18B1200905387 /* Assets.xcassets */,
 				9696C69E1CA18B1200905387 /* Info.plist */,
 				9696C6961CA18B1200905387 /* ChatDeer.xcdatamodeld */,
@@ -490,8 +488,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9696C69D1CA18B1200905387 /* LaunchScreen.storyboard in Resources */,
+				96FAC7F91CD268DA0002CA89 /* 136.pic.jpg in Resources */,
 				9696C69A1CA18B1200905387 /* Assets.xcassets in Resources */,
+				96FAC7F71CD268C70002CA89 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +581,6 @@
 				9627C4F51CAF8A3300582F5A /* XLLogInViewController.m in Sources */,
 				9627C50B1CB1315D00582F5A /* XLChatMessageCell.m in Sources */,
 				BD4F269C1CB36C1F00F86780 /* XLIMClient.m in Sources */,
-				BD1D48B01CCF738600FB70D0 /* IchiroTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,10 +616,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9696C69B1CA18B1200905387 /* LaunchScreen.storyboard */ = {
+		96FAC7F51CD268C70002CA89 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9696C69C1CA18B1200905387 /* Base */,
+				96FAC7F61CD268C70002CA89 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
