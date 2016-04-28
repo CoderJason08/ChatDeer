@@ -1,0 +1,22 @@
+//
+//  ChatDeer.pch
+//  ChatDeer
+//
+//  Created by Jason on 16/3/22.
+//  Copyright © 2016年 Jason. All rights reserved.
+//
+
+#ifndef ChatDeer_pch
+#define ChatDeer_pch
+
+#import "UIConstant.h"
+#import "DebugConstant.h"
+
+#import <Masonry/Masonry.h>
+#import "XLIMClient.h"
+#import "XLDateFormatter.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* ChatDeer_pch */

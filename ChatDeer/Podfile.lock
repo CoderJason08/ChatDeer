@@ -1,0 +1,44 @@
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - AVOSCloud (3.2.7)
+  - AVOSCloudCrashReporting (3.2.7):
+    - AVOSCloud
+  - AVOSCloudIM (3.2.7):
+    - AVOSCloud
+  - CYLTableViewPlaceHolder (1.0.8)
+  - Masonry (0.6.4)
+  - UITableView+FDTemplateLayoutCell (1.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AVOSCloud
+  - AVOSCloudCrashReporting
+  - AVOSCloudIM
+  - CYLTableViewPlaceHolder
+  - Masonry
+  - UITableView+FDTemplateLayoutCell
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  AVOSCloud: 957d1508104d7c8ed501df9d9b734d7a98c2e047
+  AVOSCloudCrashReporting: 68b4c9096c5f465f1cbda4a1d7ea5f04efa930ab
+  AVOSCloudIM: ec08eaec4d27d732e3be93eadeb3bcf1355b5dcf
+  CYLTableViewPlaceHolder: 44075c119aab78bbc514c75d771d6565e19938e8
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
+
+COCOAPODS: 0.39.0
