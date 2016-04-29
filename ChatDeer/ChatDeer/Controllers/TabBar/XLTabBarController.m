@@ -30,6 +30,26 @@ UITabBarControllerDelegate
     // Dispose of any resources that can be recreated.
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    [self.selectedViewController beginAppearanceTransition:YES animated:animated];
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    [self.selectedViewController endAppearanceTransition];
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [self.selectedViewController beginAppearanceTransition:NO animated:animated];
+//}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+//    [self.selectedViewController endAppearanceTransition];
+//}
+
 - (void)initialLizeTabBarController {
     [self setupTabBarItemWithViewControllerClass:NSClassFromString(@"XLChatListTableViewController") normalImageName:@"chat" selectedImageName:@"chat_filled"];
     [self setupTabBarItemWithViewControllerClass:NSClassFromString(@"UIViewController") normalImageName:@"user_menu" selectedImageName:@"user_menu_filled"];

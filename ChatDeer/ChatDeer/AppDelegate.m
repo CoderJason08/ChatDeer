@@ -29,19 +29,6 @@ static NSString *const clientKey = @"6Vk2t51G8qNoW7tJGwwzHzMi";
     /** 设置appId clientKey */
     [AVOSCloud setApplicationId:appID clientKey:clientKey];
     
-    AVUser *user = [AVUser user];
-    user.username = @"13267859501";
-    
-    AVUser *user1 = [AVUser user];
-    user.username = @"Linus";
-    
-    AVRelation *friends = [user relationForKey:@"friends"];
-    [friends addObject:user1];
-    
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-    }];
-    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
