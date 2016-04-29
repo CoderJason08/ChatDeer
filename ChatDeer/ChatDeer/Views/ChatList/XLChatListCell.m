@@ -14,19 +14,18 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UILabel *dateLabel;
+//@property (nonatomic, strong) UIButton *deleteButton;
+//@property (nonatomic, strong) UIButton *donotRemindButton;
 @end
 
 @implementation XLChatListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -39,39 +38,62 @@
     return self;
 }
 
+#pragma mark - Private Func
+
 - (void)setConversation:(AVIMConversation *)conversation {
     _conversation = conversation;
     _titleLabel.text = conversation.name;
     _dateLabel.text = [XLDateFormatter dateStrWithDate:conversation.lastMessageAt];
 }
 
+//- (void)swipeGestureRecognizerTrigger:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
+//    if (swipeGestureRecognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+//        [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(self).insets(UIEdgeInsetsMake(5, 5, 5, 155));
+//        }];
+//    }
+//}
+
 - (void)setupSubViewsConstraints {
-    __weak typeof(self) weakSelf = self;
+    
+//    __weak typeof(self) self = self;
+    
+//    [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.equalTo(self.containerView);
+//        make.right.equalTo(self).offset(-10);
+//        make.width.mas_equalTo(50);
+//    }];
+//    
+//    [self.donotRemindButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.equalTo(self.containerView);
+//        make.right.equalTo(self).offset(-10);
+//        make.width.mas_equalTo(100);
+//    }];
     
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weakSelf).insets(UIEdgeInsetsMake(5, 5, 5, 5));
+        make.edges.equalTo(self).insets(UIEdgeInsetsMake(5, 5, 5, 5));
     }];
     
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(weakSelf.containerView).offset(5);
-        make.bottom.equalTo(weakSelf.containerView).offset(-5);
-        make.width.equalTo(weakSelf.iconImageView.mas_height);
+        make.left.top.equalTo(self.containerView).offset(5);
+        make.bottom.equalTo(self.containerView).offset(-5);
+        make.width.equalTo(self.iconImageView.mas_height);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.iconImageView.mas_right).offset(5);
-        make.top.equalTo(weakSelf.iconImageView).offset(3);
-        make.right.equalTo(weakSelf.dateLabel.mas_left).offset(-5);
+        make.left.equalTo(self.iconImageView.mas_right).offset(5);
+        make.top.equalTo(self.iconImageView).offset(3);
+        make.right.equalTo(self.dateLabel.mas_left).offset(-5);
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.titleLabel);
-        make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.titleLabel);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
         make.right.offset(-5);
     }];
     
     [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(weakSelf.titleLabel);
+        make.centerY.equalTo(self.titleLabel);
         make.right.offset(-5);
     }];
 }
@@ -82,8 +104,8 @@
         [self.contentView addSubview:_containerView];
         _containerView.backgroundColor = [UIColor whiteColor];
         _containerView.layer.cornerRadius = 5.0f;
-//        _containerView.layer.borderColor = BlackColor.CGColor;
-//        _containerView.layer.borderWidth = 1.0f;
+//        UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureRecognizerTrigger:)];
+//        [_containerView addGestureRecognizer:swipeGestureRecognizer];
     }
     return _containerView;
 }
@@ -131,6 +153,22 @@
     return _dateLabel;
 }
 
-
+//- (UIButton *)deleteButton {
+//    if (!_deleteButton) {
+//        _deleteButton = [UIButton new];
+//        [self.contentView addSubview:_deleteButton];
+//        _deleteButton.backgroundColor = [UIColor redColor];
+//    }
+//    return _deleteButton;
+//}
+//
+//- (UIButton *)donotRemindButton {
+//    if (!_donotRemindButton) {
+//        _donotRemindButton = [UIButton new];
+//        [self.contentView addSubview:_donotRemindButton];
+//        _donotRemindButton.backgroundColor = [UIColor grayColor];
+//    }
+//    return _donotRemindButton;
+//}
 
 @end

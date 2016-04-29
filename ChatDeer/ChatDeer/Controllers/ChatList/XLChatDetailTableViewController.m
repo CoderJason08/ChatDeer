@@ -28,6 +28,7 @@ AVIMClientDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title = self.currentConversation.name;
     [self tableView];
     [self bottomToolBar];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotificationTrigger:) name:UIKeyboardWillChangeFrameNotification object:nil];

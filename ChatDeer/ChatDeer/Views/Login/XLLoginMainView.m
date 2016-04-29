@@ -49,7 +49,10 @@ UITextFieldDelegate
 #pragma mark - Private Func
 
 - (void)loginAction:(XLButton *)button {
-//    button.enabled = !button.isEnabled;
+    if (self.account.length == 0 && self.password.length == 0) {
+        NSLog(@"请输入用户名和密码");
+        return;
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(loginMainView:didClickActionButtonWithType:)]) {
         [self.delegate loginMainView:self didClickActionButtonWithType:self.type];
     }
@@ -59,7 +62,7 @@ UITextFieldDelegate
     self.type = (XLLoginMainViewType)button.tag;
     [self.selectedFlag mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.bannerImageView);
-        make.size.mas_equalTo(CGSizeMake(10, 10));
+        make.size.mas_equalTo(CGSizeMake(20, 10));
         make.centerX.equalTo(button);
     }];
     
@@ -116,7 +119,7 @@ UITextFieldDelegate
     
     [self.selectedFlag mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.bannerImageView);
-        make.size.mas_equalTo(CGSizeMake(10, 10));
+        make.size.mas_equalTo(CGSizeMake(20, 10));
         make.centerX.equalTo(self.exchangeLoginButton);
     }];
     
@@ -194,6 +197,7 @@ UITextFieldDelegate
         [_exchangeLoginButton setTitleColor:WhiteColor forState:UIControlStateNormal];
         [_exchangeLoginButton setBackgroundColor:[UIColor clearColor]];
         [_exchangeLoginButton addTarget:self action:@selector(exchangeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _exchangeLoginButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         _exchangeLoginButton.tag = 0;
         [self addSubview:_exchangeLoginButton];
     }
@@ -207,6 +211,7 @@ UITextFieldDelegate
         [_exchangeRegistButton setTitleColor:WhiteColor forState:UIControlStateNormal];
         [_exchangeRegistButton setBackgroundColor:[UIColor clearColor]];
         [_exchangeRegistButton addTarget:self action:@selector(exchangeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _exchangeRegistButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         _exchangeRegistButton.tag = 1;
         [self addSubview:_exchangeRegistButton];
     }
@@ -216,12 +221,27 @@ UITextFieldDelegate
 - (UIImageView *)selectedFlag {
     if (!_selectedFlag) {
         _selectedFlag = [UIImageView new];
-//        _selectedFlag.image = [UIImage imageNamed:@"triangle"];
-//        _selectedFlag.contentMode = UIViewContentModeScaleAspectFit;
-        _selectedFlag.backgroundColor = [UIColor whiteColor];
+        _selectedFlag.image = [self whiteTriangle];
         [self addSubview:_selectedFlag];
     }
     return _selectedFlag;
+}
+
+- (UIImage *)whiteTriangle {
+    CGFloat scale = [UIScreen mainScreen].nativeScale;
+    UIGraphicsBeginImageContext(CGSizeMake(20 * scale, 10 * scale));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //利用path进行绘制三角形
+    CGContextBeginPath(context);//标记
+    CGContextMoveToPoint(context,10 * scale, 0);//设置起点
+    CGContextAddLineToPoint(context,20 * scale, 10 * scale);
+    CGContextAddLineToPoint(context,0, 10 * scale);
+    CGContextClosePath(context);//路径结束标志，不写默认封闭
+    [[UIColor whiteColor] setFill]; //设置填充色
+    [[UIColor whiteColor] setStroke]; //设置边框颜色
+    CGContextDrawPath(context,kCGPathFillStroke);//绘制路径path
+    UIImage *whiteTriangle = UIGraphicsGetImageFromCurrentImageContext();
+    return whiteTriangle;
 }
 
 @end

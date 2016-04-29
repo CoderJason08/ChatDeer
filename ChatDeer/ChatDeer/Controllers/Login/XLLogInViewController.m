@@ -14,6 +14,7 @@
 <
 XLLoginMainViewDelegate
 >
+@property (nonatomic, strong) XLLoginMainView *mainView;
 @end
 
 @implementation XLLogInViewController
@@ -21,17 +22,20 @@ XLLoginMainViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    XLLoginMainView *mainView = [XLLoginMainView new];
-    [self.view addSubview:mainView];
-    [mainView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.mainView = [XLLoginMainView new];
+    [self.view addSubview:self.mainView];
+    [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    mainView.delegate = self;
+    self.mainView.delegate = self;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel"] style:UIBarButtonItemStyleDone target:self action:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveKeyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,11 +43,35 @@ XLLoginMainViewDelegate
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - notification
+
+/** 收到键盘弹出通知 */
+- (void)receiveKeyboardWillShowNotification:(NSNotification *)notice {
+    [self.mainView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(-150, 0, 0, 0));
+    }];
+    CGFloat duration = [notice.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)receiveKeyboardWillHideNotification:(NSNotification *)notice {
+    [self.mainView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    CGFloat duration = [notice.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    }];
+}
+
 #pragma mark - XLLoginMainViewDelegate
 
 - (void)loginMainViewDidClickLoginButton:(XLLoginMainView *)loginMainView {
     NSString *account = loginMainView.account;
-//    NSString *password = loginMainView.password;
     [XLIMClient confirmIMClientWithClientId:account openCallBack:^(BOOL isSucceed, NSError *error) {
         
     }];

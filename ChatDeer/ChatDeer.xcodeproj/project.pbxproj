@@ -27,6 +27,7 @@
 		9696C6B31CA18B1200905387 /* ChatDeerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9696C6B21CA18B1200905387 /* ChatDeerUITests.m */; };
 		96C988A21CAC2327004C21C9 /* XLChatDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C988A11CAC2327004C21C9 /* XLChatDetailTableViewController.m */; };
 		96FC26AE1CAC10BB00ACE739 /* XLChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FC26AD1CAC10BB00ACE739 /* XLChatListCell.m */; };
+		BD3F65E31CD33AA00071EC28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD3F65E21CD33AA00071EC28 /* LaunchScreen.storyboard */; };
 		BD4F269C1CB36C1F00F86780 /* XLIMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F269B1CB36C1F00F86780 /* XLIMClient.m */; };
 		BD8985881CD1AE5A002A9A1C /* XLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8985871CD1AE5A002A9A1C /* XLUserCenterViewController.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		96FC26AC1CAC10BB00ACE739 /* XLChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLChatListCell.h; sourceTree = "<group>"; };
 		96FC26AD1CAC10BB00ACE739 /* XLChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLChatListCell.m; sourceTree = "<group>"; };
 		B5B8B003930C4E8466DC50EC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BD3F65E21CD33AA00071EC28 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD4F269A1CB36C1F00F86780 /* XLIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLIMClient.h; sourceTree = "<group>"; };
 		BD4F269B1CB36C1F00F86780 /* XLIMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLIMClient.m; sourceTree = "<group>"; };
 		BD8985861CD1AE5A002A9A1C /* XLUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLUserCenterViewController.h; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				9696C68D1CA18B1200905387 /* AppDelegate.h */,
 				9696C68E1CA18B1200905387 /* AppDelegate.m */,
+				BD3F65E21CD33AA00071EC28 /* LaunchScreen.storyboard */,
 				96047F851CA1A1C700A979BB /* ChatDeer.pch */,
 				9696C6991CA18B1200905387 /* Assets.xcassets */,
 				9696C69E1CA18B1200905387 /* Info.plist */,
@@ -482,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3F65E31CD33AA00071EC28 /* LaunchScreen.storyboard in Resources */,
 				9696C69A1CA18B1200905387 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
