@@ -27,6 +27,11 @@ XLLoginMainViewDelegate
         make.edges.equalTo(self.view);
     }];
     mainView.delegate = self;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel"] style:UIBarButtonItemStyleDone target:self action:nil];
 }
 
 - (void)didReceiveMemoryWarning {

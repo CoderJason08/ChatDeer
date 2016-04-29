@@ -28,8 +28,7 @@ static NSString *const clientKey = @"6Vk2t51G8qNoW7tJGwwzHzMi";
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     /** 设置appId clientKey */
     [AVOSCloud setApplicationId:appID clientKey:clientKey];
-    
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     XLTabBarController *tabBarController = [XLTabBarController new];
